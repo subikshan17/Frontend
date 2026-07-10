@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar animate-fade-in">
+            <div>
+                <h1>Dashboard</h1>
+                <p id="welcomeText">Welcome back</p>
+            </div>
+
+            <div class="user-pill">
+                <span class="avatar" id="userInitial">U</span>
+                <div class="info">
+                    <strong id="userName">User</strong>
+                    <small id="userRole">Role</small>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Welcome -->
+        <section class="hero-card animate-fade-up" style="margin-bottom: 30px;">
+            <div>
+                <h2 id="roleTitle">TicketTally Control Center</h2>
+                <p id="roleDescription">
+                    Manage your ticketing workflow, events, and entry scans easily from one clean, responsive dashboard.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid animate-fade-up">
+            <div class="glass-card stat-card" id="ticketStatCard">
+                <span>🎫</span>
+                <h3 id="ticketCardTitle">Tickets</h3>
+                <p id="totalTickets">--</p>
+            </div>
+
+            <div class="glass-card stat-card" id="eventStatCard">
+                <span>📅</span>
+                <h3 id="eventCardTitle">Events</h3>
+                <p id="totalEvents">--</p>
+            </div>
+
+            <div class="glass-card stat-card" id="scanStatCard">
+                <span>✅</span>
+                <h3 id="scanCardTitle">Validated Scans</h3>
+                <p id="validatedTickets">--</p>
+            </div>
+
+            <div class="glass-card stat-card" id="userStatCard">
+                <span>👥</span>
+                <h3 id="userCardTitle">System Users</h3>
+                <p id="totalUsers">--</p>
+            </div>
+        </section>
+
+        <!-- Content Panels -->
+        <section class="content-grid animate-fade-up">
+            <div class="glass-card panel">
+                <h2>Quick Actions</h2>
+                <div id="quickActions" class="action-list">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+
+            <div class="glass-card panel">
+                <h2>Account Details</h2>
+                <div class="details-row">
+                    <span>Name</span>
+                    <strong id="detailName">--</strong>
+                </div>
+                <div class="details-row">
+                    <span>Email</span>
+                    <strong id="detailEmail">--</strong>
+                </div>
+                <div class="details-row">
+                    <span>Role</span>
+                    <strong id="detailRole">--</strong>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

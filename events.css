@@ -1,0 +1,130 @@
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.event-card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-banner {
+    height: 130px;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+}
+
+.event-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.event-body h2 {
+    font-size: 22px;
+    color: var(--text);
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.event-body p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.event-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.event-meta span {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+}
+
+.event-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 14px;
+    font-family: var(--font);
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+.view-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.view-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.buy-btn {
+    background: var(--success-gradient);
+    color: white;
+    box-shadow: 0 4px 15px var(--success-glow);
+}
+
+.buy-btn:hover {
+    box-shadow: 0 8px 20px var(--success-glow);
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.tier-btn {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.tier-btn:hover {
+    box-shadow: 0 8px 20px var(--primary-glow);
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.loading,
+.empty,
+.error {
+    grid-column: 1 / -1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    color: var(--text-muted);
+    font-weight: 700;
+}

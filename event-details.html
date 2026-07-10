@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/event-details.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="details-page animate-fade-in">
+            <a href="events.html" class="back-link">← Back to Events</a>
+
+            <!-- Event Hero -->
+            <section class="event-hero">
+                <div>
+                    <span id="eventStatus" class="status-badge" style="background: rgba(255,255,255,0.18); color: white; border: none; margin-bottom: 15px;">Loading</span>
+                    <h1 id="eventTitle">Loading event...</h1>
+                    <p id="eventDescription">Please wait while details are loaded...</p>
+                    <div id="eventHeroActions" style="margin-top: 24px; display: flex; gap: 12px;"></div>
+                </div>
+            </section>
+
+            <!-- Info Cards Grid -->
+            <section class="info-grid">
+                <div class="glass-card info-card">
+                    <span>📍</span>
+                    <h3>Venue</h3>
+                    <p id="eventVenue">--</p>
+                </div>
+
+                <div class="glass-card info-card">
+                    <span>🗓️</span>
+                    <h3>Date & Time</h3>
+                    <p id="eventDate">--</p>
+                </div>
+
+                <div class="glass-card info-card">
+                    <span>🎟️</span>
+                    <h3>Event ID</h3>
+                    <p id="eventIdText">--</p>
+                </div>
+            </section>
+
+            <!-- Tiers Section -->
+            <section class="tiers-section">
+                <h2>Available Ticket Tiers</h2>
+                <div id="tiersContainer" class="tiers-grid">
+                    <p class="loading">Loading ticket tiers...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/event-details.js"></script>
+
+</body>
+</html>

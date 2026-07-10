@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Scan | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        .scan-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .scan-card {
+            text-align: center;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        .scan-input-group {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 30px auto 20px;
+        }
+        .scan-input-group input {
+            flex: 1;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .scan-input-group button {
+            padding: 0 35px;
+        }
+        .scan-result-banner {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 18px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: fadeUp 0.3s ease;
+        }
+        .scan-result-banner.valid {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .scan-result-banner.already_used {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .scan-result-banner.invalid {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+        .history-card {
+            padding: 30px;
+        }
+        .history-card h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .history-table th,
+        .history-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .history-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .history-table td {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar animate-fade-in">
+            <div>
+                <h1>Gate Scan Portal</h1>
+                <p>Validate ticket holder entry passes securely</p>
+            </div>
+            
+            <div class="user-pill">
+                <span class="avatar" id="userInitial">G</span>
+                <div class="info">
+                    <strong id="userName">Gate Staff</strong>
+                    <small id="userRole">GATE_CONTROLLER</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="scan-container animate-fade-up">
+            <!-- Scan Card -->
+            <div class="glass-card scan-card">
+                <h2>Scan Ticket Serial Number</h2>
+                <p class="text-muted" style="margin-top: 5px;">Enter the ticket's unique alphanumeric code for access validation</p>
+                
+                <form id="scanForm">
+                    <div class="scan-input-group">
+                        <input type="text" id="serialNumber" placeholder="TKT-XXXX-XXXX" required autocomplete="off">
+                        <button type="submit" class="primary-btn" id="scanBtn">Validate Entry</button>
+                    </div>
+                </form>
+
+                <!-- Status Banner -->
+                <div id="scanResultBanner" class="scan-result-banner">
+                    <span id="bannerIcon"></span>
+                    <span id="bannerMessage"></span>
+                </div>
+            </div>
+
+            <!-- Scan History Card -->
+            <div class="glass-card history-card">
+                <h2>Scan Logs (Current Session)</h2>
+                <div style="overflow-x: auto;">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Serial Number</th>
+                                <th>Scan Result</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyBody">
+                            <tr>
+                                <td colspan="3" style="text-align: center; color: var(--text-muted); padding: 30px;">
+                                    No scans logged in this session yet.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/scan.js"></script>
+</body>
+</html>

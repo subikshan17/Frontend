@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/create-event.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar animate-fade-in">
+            <div>
+                <h1>Create Event</h1>
+                <p>Launch a new ticketing campaign</p>
+            </div>
+            
+            <div class="user-pill">
+                <span class="avatar" id="userInitial">O</span>
+                <div class="info">
+                    <strong id="userName">Organizer</strong>
+                    <small id="userRole">EVENT_ORGANIZER</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="create-page animate-fade-up">
+            <div class="glass-card form-card">
+                <div class="form-header">
+                    <span class="status-badge warning">Event Config</span>
+                    <h1 style="margin-top: 10px;">Event Settings</h1>
+                    <p>Configure the basic venue and schedule parameters for your event.</p>
+                </div>
+
+                <form id="createEventForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="title">Event Title</label>
+                            <input type="text" id="title" placeholder="e.g. Annual Tech Summit 2026" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="venue">Venue / Location</label>
+                            <input type="text" id="venue" placeholder="e.g. Grand Convention Hall" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startTime">Start Date & Time</label>
+                            <input type="datetime-local" id="startTime" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Initial Status</label>
+                            <select id="status" required>
+                                <option value="DRAFT">DRAFT (Hidden from users)</option>
+                                <option value="PUBLISHED">PUBLISHED (Visible immediately)</option>
+                                <option value="CANCELLED">CANCELLED</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p id="errorMessage" class="error-message"></p>
+                    <p id="successMessage" class="success-message"></p>
+
+                    <div class="actions">
+                        <a href="events.html" class="secondary-btn cancel-btn">Cancel</a>
+                        <button type="submit" class="primary-btn submit-btn" id="createEventBtnSubmit">Create Event</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/create-event.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+.register-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: transparent;
+}
+
+.register-left {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text);
+    animation: slideLeft 0.8s ease;
+}
+
+.brand {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 45px;
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.register-left h1 {
+    font-size: 56px;
+    font-weight: 900;
+    margin-bottom: 22px;
+    letter-spacing: -1.5px;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.register-left p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.features {
+    display: grid;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.register-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px;
+    animation: slideRight 0.8s ease;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+}
+
+.register-card h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+#registerBtn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.message {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 15px;
+    min-height: 20px;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 22px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.login-link a {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .register-page {
+        grid-template-columns: 1fr;
+    }
+
+    .register-left {
+        display: none;
+    }
+
+    .register-right {
+        min-height: 100vh;
+        background: radial-gradient(circle at top left, #0e111d 0%, #050609 100%);
+    }
+}

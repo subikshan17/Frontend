@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        .users-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .users-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .user-form-card {
+            margin-bottom: 30px;
+            animation: fadeUp 0.3s ease;
+        }
+        .user-form-card.hidden {
+            display: none;
+        }
+        .user-form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+        .user-form-header h2 {
+            font-size: 20px;
+        }
+        .close-form-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .close-form-btn:hover {
+            color: var(--text);
+        }
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+        .users-table-card {
+            padding: 30px;
+        }
+        .users-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 10px;
+        }
+        .users-table th,
+        .users-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .users-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .users-table td {
+            font-size: 14px;
+        }
+        .user-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .user-actions button {
+            padding: 8px 14px;
+            font-size: 13px;
+            border-radius: var(--radius-sm);
+        }
+        .edit-btn {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .edit-btn:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+        .delete-btn {
+            background: rgba(244, 63, 94, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .delete-btn:hover {
+            background: var(--danger-gradient);
+            color: white;
+            border-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar animate-fade-in">
+            <div>
+                <h1>User Management</h1>
+                <p>Add, update, or remove users and manage roles</p>
+            </div>
+            
+            <div class="user-pill">
+                <span class="avatar" id="userInitial">A</span>
+                <div class="info">
+                    <strong id="userName">Admin</strong>
+                    <small id="userRole">SYSTEM_ADMIN</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="users-container animate-fade-up">
+            <div class="users-header">
+                <h2>System Users</h2>
+                <button class="primary-btn" id="openAddUserBtn">+ Add User</button>
+            </div>
+
+            <!-- Add/Edit User Card -->
+            <div class="glass-card user-form-card hidden" id="userFormCard">
+                <div class="user-form-header">
+                    <h2 id="formTitle">Add User</h2>
+                    <button class="close-form-btn" id="closeFormBtn">✕</button>
+                </div>
+                
+                <form id="userForm">
+                    <input type="hidden" id="editUserId">
+                    
+                    <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g. John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="e.g. john@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">System Role</label>
+                            <select id="role" required>
+                                <option value="">Select Role</option>
+                                <option value="SYSTEM_ADMIN">System Admin</option>
+                                <option value="EVENT_ORGANIZER">Event Organizer</option>
+                                <option value="GATE_CONTROLLER">Gate Controller</option>
+                                <option value="TICKET_HOLDER">Ticket Holder</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="passwordGroup">
+                            <label for="password">Password (Optional if editing)</label>
+                            <input type="password" id="password" placeholder="Min 6 characters">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="primary-btn" id="saveUserBtn">Save User</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Users List Card -->
+            <div class="glass-card users-table-card">
+                <div style="overflow-x: auto;">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 40px;">
+                                    Loading users database...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/users.js"></script>
+</body>
+</html>

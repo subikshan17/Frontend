@@ -1,0 +1,167 @@
+.purchase-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.purchase-header {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+}
+
+.purchase-header h1 {
+    font-size: 34px;
+    color: var(--text);
+    margin: 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.purchase-header p {
+    color: var(--text-muted);
+}
+
+.event-card,
+.purchase-card,
+.success-box {
+    margin-bottom: 26px;
+    padding: 30px;
+}
+
+.label {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-card h2 {
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 800;
+    margin: 8px 0 6px;
+}
+
+.event-card p {
+    color: var(--text-muted);
+}
+
+.purchase-card h2 {
+    margin-bottom: 24px;
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 800;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.tiers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.tier-card {
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 22px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.25s ease;
+}
+
+.tier-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tier-card.active {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.12);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+.tier-card h3 {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.tier-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.selected-box {
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.selected-box h3 {
+    margin-bottom: 10px;
+    color: var(--text);
+    font-size: 16px;
+}
+
+.selected-box p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.selected-box strong {
+    color: var(--text);
+}
+
+.purchase-btn {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.success-box {
+    border-left: 5px solid var(--success);
+    background: rgba(16, 185, 129, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    animation: fadeUp 0.3s ease;
+}
+
+.success-box h2 {
+    color: #34d399;
+    margin-bottom: 14px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.success-box p {
+    color: var(--text-muted);
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.success-box strong {
+    color: var(--text);
+}
+
+.empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: var(--radius-sm);
+}

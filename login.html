@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | TicketTally</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-left">
+            <h1>Welcome Back</h1>
+            <p>
+                Login to manage events, tickets, purchases, validation, and reports
+                in your TicketTally dashboard.
+            </p>
+
+            <div class="auth-info-card">
+                <h3>🎟️ TicketTally</h3>
+                <p>Smart ticket management for organizers, users, admins, and gate controllers.</p>
+            </div>
+        </div>
+
+        <div class="auth-right">
+            <div class="glass-card login-card">
+
+                <div class="login-header">
+                    <h2>Login</h2>
+                    <p>Enter your credentials to continue</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" class="primary-btn login-btn">Login</button>
+
+                    <p id="loginMessage" class="message"></p>
+
+                </form>
+
+                <div class="register-link">
+                    <p>Don't have an account? <a href="register.html">Create account</a></p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+</html>

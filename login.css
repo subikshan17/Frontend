@@ -1,0 +1,130 @@
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: transparent;
+}
+
+.auth-left {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text);
+    animation: slideLeft 0.8s ease;
+}
+
+.auth-left h1 {
+    font-size: 56px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: -1.5px;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-left p {
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.auth-info-card {
+    margin-top: 40px;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+.auth-info-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    animation: slideRight 0.8s ease;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.message {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.register-link {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.register-link p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.register-link a {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .auth-page {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-left {
+        display: none;
+    }
+
+    .auth-right {
+        min-height: 100vh;
+        background: radial-gradient(circle at top left, #0e111d 0%, #050609 100%);
+    }
+}

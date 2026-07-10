@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Ticket Tiers | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/manage-tiers.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="tiers-page animate-fade-in">
+            <header class="page-header topbar">
+                <div>
+                    <p class="eyebrow">Event Management</p>
+                    <h1>Manage Ticket Tiers</h1>
+                    <p class="subtitle">Create, update, and manage ticket pricing for your event.</p>
+                </div>
+
+                <button id="openAddFormBtn" class="primary-btn">+ Add Tier</button>
+            </header>
+
+            <!-- Event info card -->
+            <section class="glass-card event-info-card">
+                <div>
+                    <p class="label">Selected Event</p>
+                    <h2 id="eventTitle">Loading event...</h2>
+                </div>
+                <span id="eventStatus" class="status-badge warning">...</span>
+            </section>
+
+            <!-- Add/Edit form -->
+            <section id="tierFormSection" class="glass-card form-card hidden">
+                <div class="form-header">
+                    <h2 id="formTitle">Add Ticket Tier</h2>
+                    <button id="closeFormBtn" class="icon-btn">✕</button>
+                </div>
+
+                <form id="tierForm">
+                    <input type="hidden" id="tierId">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="tierName">Tier Name</label>
+                            <input type="text" id="tierName" placeholder="e.g. VIP, Regular, Early Bird" required autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Price (₹)</label>
+                            <input type="number" id="price" placeholder="e.g. 999" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="capacity">Capacity</label>
+                            <input type="number" id="capacity" placeholder="e.g. 100" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remainingQuantity">Remaining Quantity</label>
+                            <input type="number" id="remainingQuantity" placeholder="e.g. 100" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelBtn" class="secondary-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">Save Tier</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Tiers List -->
+            <section class="tiers-section">
+                <div class="section-title">
+                    <h2>Ticket Tiers</h2>
+                    <p id="tierCount">0 tiers available</p>
+                </div>
+
+                <div id="tiersContainer" class="tiers-grid">
+                    <!-- Dynamic tiers -->
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/manage-tiers.js"></script>
+
+</body>
+</html>

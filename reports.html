@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | TicketTally</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">🎟️ TicketTally</div>
+        <nav class="side-nav" id="sidebarMenu">
+            <!-- Loaded dynamically by sidebar.js -->
+        </nav>
+        <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="reports-page animate-fade-in">
+            <header class="reports-hero topbar">
+                <div>
+                    <span class="tag">Analytics Center</span>
+                    <h1>Reports</h1>
+                    <p>Create, view, update, and delete event reports.</p>
+                </div>
+
+                <button id="toggleFormBtn" class="primary-btn" style="background: white; color: var(--primary); box-shadow: 0 4px 15px rgba(255,255,255,0.15);">+ Create Report</button>
+            </header>
+
+            <!-- Create/Edit Form Box -->
+            <div id="formBox" class="glass-card form-card hidden">
+                <h2 id="formTitle" style="font-size: 20px; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">Create Report</h2>
+
+                <form id="reportForm">
+                    <input type="hidden" id="reportId">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Report Name</label>
+                            <input type="text" id="name" placeholder="e.g. Attendance Summary" required autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">Sub-Type</label>
+                            <input type="text" id="type" placeholder="e.g. SUMMARY, DAILY" required autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reportType">Report Type</label>
+                            <select id="reportType" required>
+                                <option value="">Select Type</option>
+                                <option value="ANALYTICS">ANALYTICS</option>
+                                <option value="SECURITY">SECURITY</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventId">Event</label>
+                            <select id="eventId" required>
+                                <option value="">Select Event</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="display: none;">
+                            <!-- Handled automatically, but kept for script reference -->
+                            <label for="generatedAt">Generated At</label>
+                            <input type="datetime-local" id="generatedAt">
+                        </div>
+                    </div>
+
+                    <div class="form-group full" style="margin-top: 15px;">
+                        <label for="content">Report Content / Findings</label>
+                        <textarea id="content" placeholder="Enter findings, stats, or logs..." required></textarea>
+                    </div>
+
+                    <div class="form-actions" style="margin-top: 20px;">
+                        <button type="button" id="cancelBtn" class="secondary-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">Save Report</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Search Card -->
+            <div class="glass-card search-card">
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <input type="number" id="searchEventId" placeholder="Search reports by Event ID..." style="background: rgba(255,255,255,0.03); width: 100%;">
+                </div>
+                <button id="searchBtn" class="primary-btn">Search</button>
+                <button id="resetBtn" class="secondary-btn">Reset</button>
+            </div>
+
+            <!-- Grid container -->
+            <div id="reportsContainer" class="reports-grid animate-fade-up">
+                <p class="empty">Loading reports...</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/reports.js"></script>
+
+</body>
+</html>
